@@ -77,6 +77,9 @@ namespace ApplicationDev_Do
                 }
                 else
                 {
+                    DEV_Form.Common.LogInID = txtUserID.Text;
+                    DEV_Form.Common.LogInName = DtTemp.Rows[0]["USERNAME"].ToString();   // 유저 명을 Common에 등록함
+
                     this.Tag = DtTemp.Rows[0]["USERNAME"].ToString(); // 유저 명을 메인화면으로 보냄
                     this.Close();
                 }

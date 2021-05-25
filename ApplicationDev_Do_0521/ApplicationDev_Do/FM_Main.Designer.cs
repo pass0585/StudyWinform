@@ -49,6 +49,7 @@ namespace ApplicationDev_Do
             this.tssNowDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.myTabControl1 = new ApplicationDev_Do.MyTabControl();
+            this.FM_CUST = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -70,7 +71,8 @@ namespace ApplicationDev_Do
             this.M_SYSTEM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MDI_TEST,
             this.MDI_TEST2,
-            this.FM_ITEM});
+            this.FM_ITEM,
+            this.FM_CUST});
             this.M_SYSTEM.Name = "M_SYSTEM";
             this.M_SYSTEM.Size = new System.Drawing.Size(103, 24);
             this.M_SYSTEM.Text = "시스템 관리";
@@ -232,6 +234,12 @@ namespace ApplicationDev_Do
             this.myTabControl1.Size = new System.Drawing.Size(1029, 435);
             this.myTabControl1.TabIndex = 4;
             // 
+            // FM_CUST
+            // 
+            this.FM_CUST.Name = "FM_CUST";
+            this.FM_CUST.Size = new System.Drawing.Size(228, 26);
+            this.FM_CUST.Text = "거래처 마스터";
+            // 
             // FM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -279,5 +287,6 @@ namespace ApplicationDev_Do
         private System.Windows.Forms.ToolStripMenuItem MDI_TEST2;
         private MyTabControl myTabControl1;
         private System.Windows.Forms.ToolStripMenuItem FM_ITEM;
+        private System.Windows.Forms.ToolStripMenuItem FM_CUST;
     }
 }

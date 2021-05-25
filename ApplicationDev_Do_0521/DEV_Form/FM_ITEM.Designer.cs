@@ -239,7 +239,7 @@ namespace DEV_Form
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 177);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1086, 284);
+            this.groupBox3.Size = new System.Drawing.Size(1086, 344);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "품목 정보";
@@ -254,7 +254,7 @@ namespace DEV_Form
             this.dgvGrid.Name = "dgvGrid";
             this.dgvGrid.RowHeadersWidth = 51;
             this.dgvGrid.RowTemplate.Height = 29;
-            this.dgvGrid.Size = new System.Drawing.Size(1080, 214);
+            this.dgvGrid.Size = new System.Drawing.Size(1080, 274);
             this.dgvGrid.TabIndex = 3;
             // 
             // btnDelete
@@ -294,9 +294,9 @@ namespace DEV_Form
             this.groupBox4.Controls.Add(this.btnPicLoad);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(0, 461);
+            this.groupBox4.Location = new System.Drawing.Point(0, 521);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1086, 312);
+            this.groupBox4.Size = new System.Drawing.Size(1086, 252);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "품목 이미지 관리";

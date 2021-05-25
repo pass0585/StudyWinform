@@ -18,14 +18,14 @@ namespace ApplicationDev_Do
         {
             InitializeComponent();
             //로그인 폼 호출
-            /*FM_LogIn Login = new FM_LogIn();
-            Login.ShowDialog();*/
+            FM_LogIn Login = new FM_LogIn();
+            Login.ShowDialog();
 
-           /* tssUserName.Text = Login.Tag.ToString();
+            tssUserName.Text = Login.Tag.ToString();
             if (Login.Tag.ToString() == "FAIL")
             {
                 System.Environment.Exit(0);
-            }*/
+            }
 
             // 버튼에 이벤 트 추가
             this.stbExit.Click += new System.EventHandler(this.stbExit_Click);

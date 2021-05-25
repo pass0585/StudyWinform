@@ -232,13 +232,12 @@ namespace DEV_Form
                               "       ITEMDESC2 = '" + sItemDesc2           + "',     " +
                               "       ENDFLAG   = '" + "N"                  + "',     " +
                               "       PRODDATE  = '" + sProdDate            + "',     " +
-                              "       EDITOR    = ''                            ,     " +
-                            //"       EDITOR    = '" + Commoncs.LoginUserID + "',     " +
+                              "       EDITOR    = '" + Common.LogInID       + "',     " +
                               "       EDITDATE  = GETDATE()                           " +
                               " WHERE ITEMCODE  = '" + sItemCode            + "'      " +
                               "    IF (@@ROWCOUNT =0) " +
                               "INSERT INTO TB_TestItem_PSS(ITEMCODE, ITEMNAME, ITEMDESC, ITEMDESC2, ENDFLAG, PRODDATE, MAKEDATE, MAKER) " +
-                              "VALUES ('" + sItemCode + "','" + sItemName + "','" + sItemDesc + "','" + sItemDesc2 + "','" + "N" + "','" + sProdDate + "',GETDATE(),'')";
+                              "VALUES ('" + sItemCode + "','" + sItemName + "','" + sItemDesc + "','" + sItemDesc2 + "','" + "N" + "','" + sProdDate + "',GETDATE(),'" + Common.LogInID + "')";
             #endregion
 
             #region 데이터가 있는경우와 없는 경우
@@ -271,6 +270,7 @@ namespace DEV_Form
             Tran.Commit();
             MessageBox.Show("정상적으로 등록 하였습니다.");
             Connect.Close();
-        } 
+        }
+
     } 
 }
