@@ -9,7 +9,7 @@ using System.IO;
 
 namespace DEV_Form
 {
-    public partial class FM_ITEM : Form
+    public partial class FM_ITEM : Form , ChildInterface
     {
         private SqlConnection Connect = null;       // 접속 정보 객체 명명
         // 접속 주소
@@ -18,6 +18,23 @@ namespace DEV_Form
         public FM_ITEM()
         {
             InitializeComponent();
+        }
+
+        public void Inquire()
+        {
+            btnSearch_Click(null, null);
+        }
+        public void DoNew()
+        {
+
+        }
+        public void Delete()
+        {
+
+        }
+        public void Save()
+        {
+
         }
 
         private void FM_ITEM_Load(object sender, EventArgs e)
@@ -344,10 +361,79 @@ namespace DEV_Form
                 cmd.Parameters.AddWithValue("@ITEMCODE", sItemCode);
                 cmd.ExecuteNonQuery();
                 Connect.Close();
+                MessageBox.Show("이미지가 등록 되었습니다.");
             }
             catch (Exception ex)
             {
 
+            }
+            finally
+            {
+
+            }
+        }
+
+        private void dgvGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // 선택 시 해당품목 이미지 가져오기
+            string sItemCode = dgvGrid.CurrentRow.Cells["ITEMCODE"].Value.ToString();
+
+            Connect = new SqlConnection(strConn);
+            Connect.Open();
+
+            try
+            {
+                // 이미지 초기화
+                picitemimage.Image = null;  // 이미지가 없는 파일은 보이지 않도록
+
+                string sSql = "SELECT ITEMIMG FROM TB_TESTITEM_PSS WHERE ITEMCODE = '" + sItemCode + "'";
+                SqlDataAdapter Adapter = new SqlDataAdapter(sSql, Connect);
+                DataTable dtTemp = new DataTable();
+                Adapter.Fill(dtTemp);
+
+                if (dtTemp.Rows.Count == 0) return;
+
+                byte[] bImage = null;
+                bImage = (byte[])dtTemp.Rows[0]["ITEMIMG"];   // 이미지를 byte 화 한다
+                if(bImage != null)
+                {
+                    picitemimage.Image = new Bitmap(new MemoryStream(bImage));  // 메모리 스트림을 이용하여 파일을 
+                    picitemimage.BringToFront();
+                }
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+            finally
+            { 
+            }
+        }
+
+        private void btnPicDelete_Click(object sender, EventArgs e)
+        {
+            // 품목에 저장된 이미지 삭제
+            if (dgvGrid.Rows.Count == 0) return;
+            if (MessageBox.Show("선택한 이미지를 삭제하시겠습니까?", "이미지삭제", MessageBoxButtons.YesNo) == DialogResult.No) return;
+
+            SqlCommand cmd = new SqlCommand(); 
+            Connect = new SqlConnection(strConn);
+            Connect.Open();
+
+            try
+            {
+                string sItemCode = dgvGrid.CurrentRow.Cells["ITEMCODE"].Value.ToString();
+                cmd.CommandText = "UPDATE TB_TESTITEM_PSS SET ITEMIMG = null WHERE ITEMCODE = '" + sItemCode + "'";
+                cmd.Connection = Connect;
+                cmd.ExecuteNonQuery();
+                picitemimage.Image = null;
+                MessageBox.Show("정상적으로 삭제 하였습니다.");
+            }
+            catch (Exception ex)
+            {
+
+              
             }
             finally
             {

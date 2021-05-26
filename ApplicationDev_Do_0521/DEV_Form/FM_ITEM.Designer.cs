@@ -256,6 +256,7 @@ namespace DEV_Form
             this.dgvGrid.RowTemplate.Height = 29;
             this.dgvGrid.Size = new System.Drawing.Size(1080, 274);
             this.dgvGrid.TabIndex = 3;
+            this.dgvGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrid_CellClick);
             // 
             // btnDelete
             // 
@@ -309,6 +310,7 @@ namespace DEV_Form
             this.btnPicDelete.TabIndex = 5;
             this.btnPicDelete.Text = "삭제";
             this.btnPicDelete.UseVisualStyleBackColor = true;
+            this.btnPicDelete.Click += new System.EventHandler(this.btnPicDelete_Click);
             // 
             // btnPicSave
             // 
