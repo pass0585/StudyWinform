@@ -181,7 +181,7 @@ namespace DEV_Form
             this.dtpCustStart.Name = "dtpCustStart";
             this.dtpCustStart.Size = new System.Drawing.Size(164, 27);
             this.dtpCustStart.TabIndex = 12;
-            this.dtpCustStart.Value = new System.DateTime(2021, 5, 25, 0, 0, 0, 0);
+            this.dtpCustStart.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             // 
             // dtpCustEnd
             // 
@@ -190,7 +190,7 @@ namespace DEV_Form
             this.dtpCustEnd.Name = "dtpCustEnd";
             this.dtpCustEnd.Size = new System.Drawing.Size(164, 27);
             this.dtpCustEnd.TabIndex = 13;
-            this.dtpCustEnd.Value = new System.DateTime(2021, 5, 25, 0, 0, 0, 0);
+            this.dtpCustEnd.Value = new System.DateTime(2021, 5, 26, 9, 14, 7, 0);
             // 
             // label4
             // 
@@ -231,20 +231,21 @@ namespace DEV_Form
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 150);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1071, 501);
+            this.groupBox3.Size = new System.Drawing.Size(1071, 689);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "거래처 정보";
             // 
             // dgvCustGrid
             // 
+            this.dgvCustGrid.AllowUserToAddRows = false;
             this.dgvCustGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvCustGrid.Location = new System.Drawing.Point(3, 68);
             this.dgvCustGrid.Name = "dgvCustGrid";
             this.dgvCustGrid.RowHeadersWidth = 51;
             this.dgvCustGrid.RowTemplate.Height = 29;
-            this.dgvCustGrid.Size = new System.Drawing.Size(1065, 430);
+            this.dgvCustGrid.Size = new System.Drawing.Size(1065, 618);
             this.dgvCustGrid.TabIndex = 3;
             // 
             // btnSave
@@ -281,12 +282,13 @@ namespace DEV_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 651);
+            this.ClientSize = new System.Drawing.Size(1071, 839);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FM_CUST";
             this.Text = "거래처 마스터";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

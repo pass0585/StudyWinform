@@ -35,6 +35,8 @@ namespace ApplicationDev_Do
             this.MDI_TEST = new System.Windows.Forms.ToolStripMenuItem();
             this.MDI_TEST2 = new System.Windows.Forms.ToolStripMenuItem();
             this.FM_ITEM = new System.Windows.Forms.ToolStripMenuItem();
+            this.FM_CUST = new System.Windows.Forms.ToolStripMenuItem();
+            this.Fm_Cust_ = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.stbSearch = new System.Windows.Forms.ToolStripButton();
             this.stbInsert = new System.Windows.Forms.ToolStripButton();
@@ -49,7 +51,6 @@ namespace ApplicationDev_Do
             this.tssNowDate = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.myTabControl1 = new ApplicationDev_Do.MyTabControl();
-            this.FM_CUST = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -72,7 +73,8 @@ namespace ApplicationDev_Do
             this.MDI_TEST,
             this.MDI_TEST2,
             this.FM_ITEM,
-            this.FM_CUST});
+            this.FM_CUST,
+            this.Fm_Cust_});
             this.M_SYSTEM.Name = "M_SYSTEM";
             this.M_SYSTEM.Size = new System.Drawing.Size(103, 24);
             this.M_SYSTEM.Text = "시스템 관리";
@@ -94,6 +96,18 @@ namespace ApplicationDev_Do
             this.FM_ITEM.Name = "FM_ITEM";
             this.FM_ITEM.Size = new System.Drawing.Size(228, 26);
             this.FM_ITEM.Text = "품목 관리";
+            // 
+            // FM_CUST
+            // 
+            this.FM_CUST.Name = "FM_CUST";
+            this.FM_CUST.Size = new System.Drawing.Size(228, 26);
+            this.FM_CUST.Text = "거래처 마스터";
+            // 
+            // Fm_Cust_
+            // 
+            this.Fm_Cust_.Name = "Fm_Cust_";
+            this.Fm_Cust_.Size = new System.Drawing.Size(228, 26);
+            this.Fm_Cust_.Text = "toolStripMenuItem1";
             // 
             // toolStrip
             // 
@@ -234,12 +248,6 @@ namespace ApplicationDev_Do
             this.myTabControl1.Size = new System.Drawing.Size(1029, 435);
             this.myTabControl1.TabIndex = 4;
             // 
-            // FM_CUST
-            // 
-            this.FM_CUST.Name = "FM_CUST";
-            this.FM_CUST.Size = new System.Drawing.Size(228, 26);
-            this.FM_CUST.Text = "거래처 마스터";
-            // 
             // FM_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -288,5 +296,6 @@ namespace ApplicationDev_Do
         private MyTabControl myTabControl1;
         private System.Windows.Forms.ToolStripMenuItem FM_ITEM;
         private System.Windows.Forms.ToolStripMenuItem FM_CUST;
+        private System.Windows.Forms.ToolStripMenuItem Fm_Cust_;
     }
 }

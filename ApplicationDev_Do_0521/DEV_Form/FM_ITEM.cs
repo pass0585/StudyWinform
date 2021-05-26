@@ -3,6 +3,9 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Transactions;
+using ApplicationDev_Do;
+using System.Drawing;
+using System.IO;
 
 namespace DEV_Form
 {
@@ -272,5 +275,84 @@ namespace DEV_Form
             Connect.Close();
         }
 
+        private void btnPicLoad_Click(object sender, EventArgs e)
+        {
+            string sImageFile = string.Empty;
+            // 이미지 불러오기 및 저장, 파일 탐색기 호출
+
+            OpenFileDialog Dialog = new OpenFileDialog();
+            if(Dialog.ShowDialog() == DialogResult.OK)
+            {
+                sImageFile = Dialog.FileName;
+                picitemimage.Tag = Dialog.FileName;
+                // 지정된 파일에서 이미지를 만들어 픽쳐박스에 넣는다.
+                picitemimage.Image = Bitmap.FromFile(sImageFile);
+            }
+
+        }
+
+        private void picitemimage_Click(object sender, EventArgs e)
+        {
+            // 픽쳐박스 크기 최대화 및 이전 사이즈로
+            if(this.picitemimage.Dock == System.Windows.Forms.DockStyle.Fill)
+            {
+                // 이미지가 가득채워져있는 상태이면 원상태로 바꾸기
+                this.picitemimage.Dock = System.Windows.Forms.DockStyle.None;
+            }
+            else
+            {
+                // 이미지가 가득 채워져 있지 않으면 가득 채우기
+                this.picitemimage.Dock = System.Windows.Forms.DockStyle.Fill;
+                // 이미지를 가장 앞으로 가지고 온다.
+                picitemimage.BringToFront();
+
+            }
+        }
+
+        private void btnPicSave_Click(object sender, EventArgs e)
+        {
+            // 픽쳐박스 이미지 저장
+            if (dgvGrid.Rows.Count == 0) return;
+            if (picitemimage.Image == null) return;
+            if (picitemimage.Tag.ToString() == "") return;  // 이미지 경로
+
+            if(MessageBox.Show("선택된 이미지로 등록 하시겠습니까?"
+                              ,"이미지 등록",MessageBoxButtons.YesNo) == DialogResult.No) return;
+            Byte[] bImage = null;
+            Connect = new SqlConnection(strConn);
+            try
+            {
+                // 파일을 불러오기 위한 파일 경로 방법 지정
+                FileStream stream = new FileStream(picitemimage.Tag.ToString(),
+                                                    FileMode.Open, FileAccess.Read);
+                // 읽어들인 파일을 바이너리 코드로 변환
+                BinaryReader reader = new BinaryReader(stream);
+                //만들어진 바이너리 코드 이미지를 Byte 화 하여 저장.
+                bImage = reader.ReadBytes(Convert.ToInt32(stream.Length));
+                reader.Close();
+                stream.Close();
+                // 바이너리 코드는 컴퓨터가 인식할 수 있는 0과 1로 구성된 이진코드
+                // 바이트 코드는 CPU가 아닌 가상머신에서 이해할 수 있는 코드
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = Connect;
+                Connect.Open();
+
+                string sItemCode = dgvGrid.CurrentRow.Cells["ITEMCODE"].Value.ToString();
+                cmd.CommandText = "UPDATE TB_TESTITEM_PSS SET ITEMIMG = @IMAGE WHERE ITEMCODE = @ITEMCODE";
+                cmd.Parameters.AddWithValue("@IMAGE", bImage);
+                cmd.Parameters.AddWithValue("@ITEMCODE", sItemCode);
+                cmd.ExecuteNonQuery();
+                Connect.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
     } 
 }

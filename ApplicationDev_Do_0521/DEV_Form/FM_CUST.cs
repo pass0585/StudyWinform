@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Transactions;
+using ApplicationDev_Do;
 
 namespace DEV_Form
 {
@@ -85,8 +86,8 @@ namespace DEV_Form
                                                             "       WHEN USEFLAG = 'N' THEN '미사용' END AS USEFLAG,   " +
                                                             "       FIRSTDATE,  " +
                                                             "       MAKEDATE,   " +
-                                                            "       MAKER,       " +
-                                                            "       EDITDATE,    " +
+                                                            "       MAKER,      " +
+                                                            "       EDITDATE,   " +
                                                             "       EDITOR      " +
                                                             "  FROM TB_CUST_PSS WITH(NOLOCK) " +
                                                             " WHERE CUSTCODE LIKE '%" + sCustCode + "%' " +
@@ -163,8 +164,8 @@ namespace DEV_Form
 
             try
             {
-                string Itemcode = dgvCustGrid.CurrentRow.Cells["ITEMCODE"].Value.ToString();
-                cmd.CommandText = "DELETE TB_TESTITEM_PSS WHERE ITEMCODE = '" + Itemcode + "'";
+                string CustCode = dgvCustGrid.CurrentRow.Cells["CUSTCODE"].Value.ToString();
+                cmd.CommandText = "DELETE TB_CUST_PSS WHERE CUSTCODE = '" + CustCode + "'";
 
                 cmd.ExecuteNonQuery();
 
@@ -211,32 +212,32 @@ namespace DEV_Form
             cmd.Connection = Connect;
 
             if (sCustCode == "" || sCustType == "" || sFirstDate == "")
-            { MessageBox.Show("거래처 코드, 거래처 타입 및 거래 일자를 입력하세요"); return; }
+            { MessageBox.Show("거래처 코드, 거래처 타입 및 거래 일자를 확인하세요"); return; }
 
             if (sCustType == "고객사")
                 sCustType = "C";
             else if (sCustType == "협력사")
                 sCustType = "V";
-            else { sCustType = "사용";}
+            else { sCustType = "C";}
 
             if (sUseFlag == "사용")
                 sUseFlag = "Y";
             else if (sUseFlag == "미사용")
                 sUseFlag = "N";
-            else { sUseFlag = "y"; }
+            else { sUseFlag = "Y"; }
 
-            cmd.CommandText = "UPDATE TB_TestItem_PSS                                 " +
-                              "   SET CUSTNAME  = '" + sCustName + "',     " +
-                              "       BIZCLASS  = '" + sBizClass + "',     " +
-                              "       BIZTYPE = '" + sBizType + "',     " +
-                              "       USEFLAG   = '" + "N" + "',     " +
-                              "       FIRSTDATE  = '" + sFirstDate + "',     " +
-                              "       EDITOR    = '" + Common.LogInID + "',     " +
-                              "       EDITDATE  = GETDATE()                           " +
-                              " WHERE ITEMCODE  = '" + sCustCode + "'      " +
-                              "    IF (@@ROWCOUNT =0) " +
-                              "INSERT INTO TB_TestItem_PSS(CUSTCODE, CUSTNAME, BIZCLASS, BIZTYPE, USEFLAG, FIRSTDATE, MAKEDATE, MAKER) " +
-                              "VALUES ('" + sCustCode + "','" + sCustName + "','" + sBizClass + "','" + sBizType + "','" + "N" + "','" + sFirstDate + "',GETDATE(),'" + Common.LogInID + "')";
+            cmd.CommandText = "UPDATE TB_CUST_PSS                            " +
+                              "   SET CUSTNAME   = '" + sCustName       + "'," + 
+                              "       BIZCLASS   = '" + sBizClass       + "'," +
+                              "       BIZTYPE    = '" + sBizType        + "'," +
+                              "       USEFLAG    = '" + "N"             + "'," +
+                              "       FIRSTDATE  = '" + sFirstDate      + "'," +
+                              "       EDITOR     = '" + Common.LogInID  + "'," +
+                              "       EDITDATE   = GETDATE()                 " +
+                              " WHERE CUSTCODE   = '" + sCustCode       + "' " +
+                              "    IF (@@ROWCOUNT =0)                        " +
+                              "INSERT INTO TB_CUST_PSS(CUSTCODE, CUSTTYPE, CUSTNAME, BIZCLASS, BIZTYPE, USEFLAG, FIRSTDATE, MAKEDATE, MAKER) " +
+                              "VALUES ('" + sCustCode + "','" + sCustType + "','" + sCustName + "','" + sBizClass + "','" + sBizType + "','" + "N" + "','" + sFirstDate + "',GETDATE(),'" + Common.LogInID + "')";
 
             cmd.ExecuteNonQuery();
 
