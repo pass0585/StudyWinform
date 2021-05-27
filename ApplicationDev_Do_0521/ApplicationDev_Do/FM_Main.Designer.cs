@@ -37,6 +37,7 @@ namespace ApplicationDev_Do
             this.FM_ITEM = new System.Windows.Forms.ToolStripMenuItem();
             this.FM_CUST = new System.Windows.Forms.ToolStripMenuItem();
             this.Fm_Cust_ = new System.Windows.Forms.ToolStripMenuItem();
+            this.FM_USER = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.stbSearch = new System.Windows.Forms.ToolStripButton();
             this.stbInsert = new System.Windows.Forms.ToolStripButton();
@@ -74,7 +75,8 @@ namespace ApplicationDev_Do
             this.MDI_TEST2,
             this.FM_ITEM,
             this.FM_CUST,
-            this.Fm_Cust_});
+            this.Fm_Cust_,
+            this.FM_USER});
             this.M_SYSTEM.Name = "M_SYSTEM";
             this.M_SYSTEM.Size = new System.Drawing.Size(103, 24);
             this.M_SYSTEM.Text = "시스템 관리";
@@ -108,6 +110,12 @@ namespace ApplicationDev_Do
             this.Fm_Cust_.Name = "Fm_Cust_";
             this.Fm_Cust_.Size = new System.Drawing.Size(228, 26);
             this.Fm_Cust_.Text = "toolStripMenuItem1";
+            // 
+            // FM_USER
+            // 
+            this.FM_USER.Name = "FM_USER";
+            this.FM_USER.Size = new System.Drawing.Size(228, 26);
+            this.FM_USER.Text = "사용자 관리";
             // 
             // toolStrip
             // 
@@ -242,8 +250,10 @@ namespace ApplicationDev_Do
             // myTabControl1
             // 
             this.myTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myTabControl1.ItemSize = new System.Drawing.Size(0, 25);
             this.myTabControl1.Location = new System.Drawing.Point(0, 141);
             this.myTabControl1.Name = "myTabControl1";
+            this.myTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.myTabControl1.SelectedIndex = 0;
             this.myTabControl1.Size = new System.Drawing.Size(1029, 435);
             this.myTabControl1.TabIndex = 4;
@@ -297,5 +307,6 @@ namespace ApplicationDev_Do
         private System.Windows.Forms.ToolStripMenuItem FM_ITEM;
         private System.Windows.Forms.ToolStripMenuItem FM_CUST;
         private System.Windows.Forms.ToolStripMenuItem Fm_Cust_;
+        private System.Windows.Forms.ToolStripMenuItem FM_USER;
     }
 }

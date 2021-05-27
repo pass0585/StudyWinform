@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Dev_Form
 {
     public partial class FM_OVERRIDE : BaseMDIChildForm
@@ -25,13 +26,14 @@ namespace Dev_Form
         {
             base.Inquire();
         }
-        public override void Delete()
-        {
-            base.Delete();
-        }
         public override void DoNew()
         {
             base.DoNew();
+          
+        }
+        public override void Delete()
+        {
+            base.Delete();
         }
     }
 }

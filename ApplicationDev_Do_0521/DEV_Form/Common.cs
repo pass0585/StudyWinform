@@ -10,7 +10,7 @@ namespace DEV_Form
     {
         public static string LogInID = string.Empty;
         public static string LogInName = string.Empty;
-        public static string DbPath = "Data Source=61.105.9.203; Initial Catalog=AppDev;User ID=kfqs1;Password=1234";  //DESKTOP-HNMKD38\SQLEXPRESS 
+        public static string DbPath = "Data Source=222.235.141.8; Initial Catalog=AppDev;User ID=kfqs1;Password=1234";  //DESKTOP-HNMKD38\SQLEXPRESS 
 
 
         // static 객체생성없이 호출시 메모리에

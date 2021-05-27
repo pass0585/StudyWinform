@@ -1,7 +1,7 @@
 ﻿
-namespace DEV_Form
+namespace proj_test
 {
-    partial class MDI_TEST2
+    partial class score
     {
         /// <summary>
         /// Required designer variable.
@@ -31,15 +31,14 @@ namespace DEV_Form
         {
             this.SuspendLayout();
             // 
-            // MDI_TEST2
+            // score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1191, 538);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MDI_TEST2";
-            this.Text = "MDI_TEST2";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Name = "score";
+            this.Text = "score";
             this.ResumeLayout(false);
 
         }
