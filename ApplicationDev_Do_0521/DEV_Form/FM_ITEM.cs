@@ -3,7 +3,6 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Transactions;
-using ApplicationDev_Do;
 using System.Drawing;
 using System.IO;
 
@@ -156,8 +155,8 @@ namespace DEV_Form
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
 
-            
             }
             finally
             {
@@ -365,7 +364,7 @@ namespace DEV_Form
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -403,7 +402,7 @@ namespace DEV_Form
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
 
             }
             finally
@@ -432,8 +431,7 @@ namespace DEV_Form
             }
             catch (Exception ex)
             {
-
-              
+                MessageBox.Show(ex.ToString());
             }
             finally
             {

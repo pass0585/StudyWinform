@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ApplicationDev_Do;
 namespace DEV_Form
 {
     public partial class Fm_Cust_ : Form

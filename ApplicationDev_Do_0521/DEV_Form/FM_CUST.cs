@@ -3,7 +3,6 @@ using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Transactions;
-using ApplicationDev_Do;
 
 namespace DEV_Form
 {
@@ -129,7 +128,7 @@ namespace DEV_Form
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
 
             }
             finally
