@@ -16,5 +16,10 @@ namespace DEV_Form
         {
             InitializeComponent();
         }
+
+        private void MDI_TEST2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

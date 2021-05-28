@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DEV_Form;
 
 namespace ApplicationDev_Do
 {
-    public partial class FM_Main : Form
+    public partial class FM_Main : Form 
     {
         public FM_Main()
         {
@@ -80,7 +72,7 @@ namespace ApplicationDev_Do
         private void timer1_Tick(object sender, EventArgs e)
         {
             tssNowDate.Text = DateTime.Now.ToString();
-        }
+         }
 
         private void M_SYSTEM_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
